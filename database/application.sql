@@ -40,6 +40,8 @@ CREATE TABLE `applicant` (
   `date_verified` date DEFAULT NULL,
   `time_verified` time DEFAULT NULL,
   `for_exam` int DEFAULT NULL,
+  `login_date` date DEFAULT NULL,
+  `login_time` time DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -50,7 +52,7 @@ CREATE TABLE `applicant` (
 
 LOCK TABLES `applicant` WRITE;
 /*!40000 ALTER TABLE `applicant` DISABLE KEYS */;
-INSERT INTO `applicant` VALUES (4,'20250801092500','Aboy','Eczekiel','Hermocilla','','Purok 7C, Sudapin, Kidapawan City','1986-05-14','09107524284','easykill.aboy@gmail.com','1234','verified','2025-08-01','09:25:00',NULL,NULL,NULL);
+INSERT INTO `applicant` VALUES (4,'20250801092500','Aboy','Eczekiel','Hermocilla','','Purok 7C, Sudapin, Kidapawan City','1986-05-14','09107524284','easykill.aboy@gmail.com','1234','verified','2025-08-01','09:25:00',NULL,NULL,NULL,'2025-08-01','15:21:20');
 /*!40000 ALTER TABLE `applicant` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,4 +146,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-08-01 15:05:55
+-- Dump completed on 2025-08-01 15:22:37
