@@ -30,6 +30,7 @@ CREATE TABLE `applicant` (
   `app_middlename` varchar(100) DEFAULT NULL,
   `app_suffix` varchar(100) DEFAULT NULL,
   `app_address` text,
+  `app_birthdate` date DEFAULT NULL,
   `app_contact` varchar(45) DEFAULT NULL,
   `app_email` varchar(45) DEFAULT NULL,
   `app_password` varchar(100) DEFAULT NULL,
@@ -39,7 +40,7 @@ CREATE TABLE `applicant` (
   `date_verified` date DEFAULT NULL,
   `time_verified` time DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +49,34 @@ CREATE TABLE `applicant` (
 
 LOCK TABLES `applicant` WRITE;
 /*!40000 ALTER TABLE `applicant` DISABLE KEYS */;
+INSERT INTO `applicant` VALUES (4,'20250801092500','Aboy','Eczekiel','Hermocilla','','Purok 7C, Sudapin, Kidapawan City','1986-05-14','09107524284','easykill.aboy@gmail.com','1234','verified','2025-08-01','09:25:00',NULL,NULL);
 /*!40000 ALTER TABLE `applicant` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `applicant_details`
+--
+
+DROP TABLE IF EXISTS `applicant_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `applicant_details` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `app_id` varchar(45) DEFAULT NULL,
+  `branch` text,
+  `department` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `applicant_details`
+--
+
+LOCK TABLES `applicant_details` WRITE;
+/*!40000 ALTER TABLE `applicant_details` DISABLE KEYS */;
+INSERT INTO `applicant_details` VALUES (1,'20250801092500','Kidapawan Medical Specialists Center, Inc.','LABORATORY');
+/*!40000 ALTER TABLE `applicant_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -61,9 +89,10 @@ DROP TABLE IF EXISTS `documents`;
 CREATE TABLE `documents` (
   `id` int NOT NULL AUTO_INCREMENT,
   `app_id` varchar(45) DEFAULT NULL,
-  `document` varchar(45) DEFAULT NULL,
+  `document` longblob,
+  `doc_title` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,7 +118,7 @@ CREATE TABLE `verification` (
   `datearray` date DEFAULT NULL,
   `timearray` time DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,6 +127,7 @@ CREATE TABLE `verification` (
 
 LOCK TABLES `verification` WRITE;
 /*!40000 ALTER TABLE `verification` DISABLE KEYS */;
+INSERT INTO `verification` VALUES (5,'easykill.aboy@gmail.com','2081','2025-08-01','09:25:00');
 /*!40000 ALTER TABLE `verification` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -110,4 +140,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-07-31 16:10:08
+-- Dump completed on 2025-08-01 14:04:08

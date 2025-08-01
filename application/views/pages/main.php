@@ -110,7 +110,10 @@
                                                     echo "<tr>";
                                                         echo "<td>$x.</td>";
                                                         echo "<td>$doc[doc_title]</td>";
-                                                        echo "<td></td>";
+                                                        echo "<td>
+                                                        <a href='#' title='View' data-bs-toggle='modal' data=bs=target='#pdfModal' class='btn rounded-pill bg-success btn-sm text-white viewPdfButton' data-id='$doc[id]'><i class='icofont-eye'></i> View</a>
+                                                        <a href='#' class='btn rounded-pill bg-danger btn-sm text-white deleteDocument' data-bs-toggle='modal' data-bs-target='#DeleteDocument' data-id='$doc[id]'><i class='icofont-trash'></i> Remove</a>
+                                                        </td>";
                                                     echo "</tr>";
                                                     $x++;
                                                 }

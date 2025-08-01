@@ -8,7 +8,8 @@
 <script src="<?=base_url('design/assets/bundles/dataTables.bundle.js');?>"></script>
 
 <!-- Jquery Page Js -->
-<script src="<?=base_url('design/js/template.js');?>"></script>
+<!-- <script src="<?=base_url('design/js/template.js');?>"></script> -->
+<script src="<?=base_url('design/js/sweetalert.min.js');?>"></script>
 <script>
      // project data table
      $(document).ready(function() {
@@ -35,6 +36,50 @@
 
     mediaQuery.addListener(handleMediaQueryChange);
     handleMediaQueryChange(mediaQuery);
+
+     $('.viewPdfButton').on('click', function() {
+        var pdfId = $(this).data('id'); // Get the ID from a data attribute
+        $('#pdfFrame').attr('src', '<?=base_url('view_document/');?>' + pdfId);
+        $('#pdfModal').modal('show');
+    });
+    $('.deleteDocument').click(function(){
+        var id=$(this).data('id');
+        document.getElementById('doc_id').value=id;
+    });
 </script>
+
+<?php
+if($this->session->flashdata('success')):
+    ?>
+        <script type="text/javascript">
+            swal({
+            title: 'Success',
+            text: '<?=$this->session->success;?>',              
+            imageWidth: 50,
+            imageHeight: 50,          
+            timer: 3000,
+            buttons: false
+          });
+        </script>
+        <?php
+endif;
+?>
+
+<?php
+if($this->session->flashdata('failed')):
+    ?>
+        <script type="text/javascript">
+            swal({
+            title: 'ERROR',
+            text: '<?=$this->session->failed;?>',             
+            imageWidth: 50,
+            imageHeight: 50,          
+            timer: 3000,
+            buttons: false
+          });
+        </script>
+        <?php
+endif;
+?>
 </body>
 </html>

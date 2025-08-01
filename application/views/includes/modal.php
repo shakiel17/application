@@ -66,10 +66,9 @@
                 <div class="row g-3 align-items-center">
                     <div class="col-md-12">
                         <div class="form-group mb-1">
-                            <label class="form-label">Select Preferred Branch To Apply</label>   
-                            <input type="text" class="form-control" value="<?=$applicant['branch'];?>" readonly>                         
+                            <label class="form-label">Select Preferred Branch To Apply</label>                               
                             <select name="branch" class="form-control" required>                                
-                                <option value="">Select Branch</option>
+                                <option value="<?=$applicant['branch'];?>"><?=$applicant['branch'];?></option>
                                 <option value="Kidapawan Medical Specialists Center, Inc.">Kidapawan Medical Specialists Center, Inc.</option>
                                 <option value="Makilala Medical Specialists Hospital, Inc.">Makilala Medical Specialists Hospital, Inc.</option>
                                 <option value="Antipas Medical Specialists Hospital, Inc.">Antipas Medical Specialists Hospital, Inc.</option>
@@ -78,10 +77,9 @@
                             </select>
                         </div>
                         <div class="form-group mb-1">
-                            <label class="form-label">Select Preferred Department to Apply</label>
-                            <input type="text" class="form-control" value="<?=$applicant['department'];?>" readonly>   
+                            <label class="form-label">Select Preferred Department to Apply</label>                            
                             <select name="department" class="form-control" required>
-                                <option value="">Select Department</option>
+                                <option value="<?=$applicant['department'];?>"><?=$applicant['department'];?></option>
                                 <option value="ADMIN">ADMIN</option>
                                 <option value="NURSING">NURSING</option>
                                 <option value="LABORATORY">LABORATORY</option>
@@ -120,7 +118,7 @@
                         </div>
                         <div class="form-group mb-1">
                             <label class="form-label">File</label>
-                            <input type="file" class="form-control" name="file" required>
+                            <input type="file" class="form-control" name="file" required accept="application/pdf">
                         </div>
                     </div>
                 </div>
@@ -128,6 +126,77 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary text-white">Upload</a>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="pdfModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pdfModalLabel">PDF Viewer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="pdfFrame" src="" width="100%" height="500px"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="modal fade" id="DeleteDocument" tabindex="-1" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Delete Document</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="<?=base_url('delete_document');?>" method="POST">
+                <input type="hidden" name="id" id="doc_id">
+            <div class="modal-body">
+                <h2>Do you wish to REMOVE this document?</h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, It will stay!</button>
+                <button type="submit" class="btn btn-danger text-white">Yes, Remove it!</a>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ChangePassword" tabindex="-1" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Change Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="<?=base_url('change_password');?>" method="POST">                
+            <div class="modal-body">
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-12">
+                        <div class="form-group mb-1">
+                            <label class="form-label">Current Password</label>
+                            <input type="password" class="form-control" name="oldpass" required>
+                        </div>
+                        <div class="form-group mb-1">
+                            <label class="form-label">New Password</label>
+                            <input type="password" class="form-control" name="newpass" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-danger text-white">Change</a>
             </div>
             </form>
         </div>

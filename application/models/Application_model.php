@@ -139,5 +139,52 @@
                 return true;
             }
         }
+        public function upload_document(){
+            $app_id=$this->session->app_id;
+            $title=$this->input->post('doc_title');
+            $fileName=basename($_FILES["file"]["name"]);
+            $fileType=pathinfo($fileName, PATHINFO_EXTENSION);
+            $allowTypes = array('pdf');
+            if(in_array($fileType,$allowTypes)){
+                $image = $_FILES["file"]["tmp_name"];
+                $imgContent=addslashes(file_get_contents($image));
+                $result=$this->db->query("INSERT INTO documents(app_id,doc_title,document) VALUES('$app_id','$title','$imgContent')");
+            }
+            if($result){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        public function getSingleDocument($id){
+            $result=$this->db->query("SELECT * FROM documents WHERE id='$id'");
+            return $result->row_array();
+        }
+
+        public function delete_document($id){
+            $result=$this->db->query("DELETE FROM documents WHERE id='$id'");
+            if($result){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        public function change_password(){
+            $id=$this->session->app_id;
+            $email=$this->session->email;
+            $oldpass=$this->input->post('oldpass');
+            $newpass=$this->input->post('newpass');
+            $check=$this->db->query("SELECT * FROM applicant WHERE app_password='$oldpass' AND app_email='$email' AND app_id='$id'");
+            if($check->num_rows()>0){
+                $result=$this->db->query("UPDATE applicant SET app_password='$newpass' WHERE app_email='$email' AND app_id='$id'");
+                if($result){
+                    return true;
+                }else{
+                    return false;
+                }                  
+            }else{
+                return false;              
+            }
+        }
     }
 ?>

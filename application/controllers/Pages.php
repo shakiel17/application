@@ -152,9 +152,50 @@ date_default_timezone_set('Asia/Manila');
         public function update_profile(){
             $update=$this->Application_model->update_profile();
             if($update){
-                
+                $this->session->set_flashdata('success','Profile successfully updated!');
             }else{
+                $this->session->set_flashdata('failed','Unable to update profile!');
+            }
+            redirect(base_url('main'));
+        }
+        public function upload_document(){
+            $update=$this->Application_model->upload_document();
+            if($update){
+                $this->session->set_flashdata('success','Document successfully uploaded!');
+            }else{
+                $this->session->set_flashdata('failed','Unable to upload document!');
+            }
+            redirect(base_url('main'));
+        }
 
+        public function delete_document(){
+            $id=$this->input->post('id');
+            $update=$this->Application_model->delete_document($id);
+            if($update){
+                $this->session->set_flashdata('success','Document successfully deleted!');
+            }else{
+                $this->session->set_flashdata('failed','Unable to delete document!');
+            }
+            redirect(base_url('main'));
+        }
+
+        public function view_document($id){
+            $page = "view_document";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }                                                        
+            if($this->session->user_login){}            
+            else{redirect(base_url());}            
+            $data['document'] = $this->Application_model->getSingleDocument($id);
+            $this->load->view('pages/'.$page,$data);             
+        }
+
+        public function change_password(){
+            $update=$this->Application_model->change_password();
+            if($update){
+                $this->session->set_flashdata('success','Password successfully updated!');
+            }else{
+                $this->session->set_flashdata('failed','Unable to update password!');
             }
             redirect(base_url('main'));
         }

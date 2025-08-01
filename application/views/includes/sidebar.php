@@ -9,111 +9,16 @@
                         <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
                     </svg>
                 </span>
-                <span class="logo-text">My-Task</span>
+                <span class="logo-text">My Dashboard</span>
             </a>
             <!-- Menu: main ul -->
             <ul class="menu-list flex-grow-1 mt-3">
-                <li class="collapsed">
-                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#dashboard-Components" href="#">
-                        <i class="icofont-home fs-5"></i> <span>Dashboard</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="dashboard-Components">
-                        <li><a class="ms-link" href="index.html"> <span>Hr Dashboard</span></a></li>
-                        <li><a class="ms-link" href="project-dashboard.html"> <span>Project Dashboard</span></a></li>
-                    </ul>
-                </li>
-                <li  class="collapsed">
-                    <a class="m-link"  data-bs-toggle="collapse" data-bs-target="#project-Components" href="#">
-                        <i class="icofont-briefcase"></i><span>Projects</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="project-Components">
-                        <li><a class="ms-link" href="projects.html"><span>Projects</span></a></li>
-                        <li><a class="ms-link" href="task.html"><span>Tasks</span></a></li>
-                        <li><a class="ms-link" href="timesheet.html"><span>Timesheet</span></a></li>
-                        <li><a class="ms-link" href="team-leader.html"><span>Leaders</span></a></li>
-                    </ul>
-                </li>
-                
-                <li class="collapsed">
-                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#tikit-Components" href="#"><i
-                            class="icofont-ticket"></i> <span>Tickets</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="tikit-Components">
-                        <li><a class="ms-link" href="tickets.html"> <span>Tickets View</span></a></li>
-                        <li><a class="ms-link" href="ticket-detail.html"> <span>Ticket Detail</span></a></li>
-                    </ul>
-                </li>
-                <li class="collapsed">
-                    <a class="m-link active" data-bs-toggle="collapse" data-bs-target="#client-Components" href="#"><i
-                            class="icofont-user-male"></i> <span>Our Clients</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse show" id="client-Components">
-                        <li><a class="ms-link" href="ourclients.html"> <span>Clients</span></a></li>
-                        <li><a class="ms-link active" href="profile.html"> <span>Client Profile</span></a></li>
-                    </ul>
-                </li>
-                <li class="collapsed">
-                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#emp-Components" href="#"><i
-                            class="icofont-users-alt-5"></i> <span>Employees</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="emp-Components">
-                        <li><a class="ms-link" href="members.html"> <span>Members</span></a></li>
-                        <li><a class="ms-link" href="employee-profile.html"> <span>Members Profile</span></a></li>
-                        <li><a class="ms-link" href="holidays.html"> <span>Holidays</span></a></li>
-                        <li><a class="ms-link" href="attendance-employees.html"> <span>Attendance Employees</span></a></li>
-                        <li><a class="ms-link" href="attendance.html"> <span>Attendance</span></a></li>
-                        <li><a class="ms-link" href="leave-request.html"> <span>Leave Request</span></a></li>
-                        <li><a class="ms-link" href="department.html"> <span>Department</span></a></li>
-                    </ul>
-                </li>
-               
-                <li class="collapsed">
-                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Componentsone" href="#"><i
-                            class="icofont-ui-calculator"></i> <span>Accounts</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="menu-Componentsone">
-                        <li><a class="ms-link" href="invoices.html"><span>Invoices</span> </a></li>
-                        <li><a class="ms-link" href="payments.html"><span>Payments</span> </a></li>
-                        <li><a class="ms-link" href="expenses.html"><span>Expenses</span> </a></li>
-                    </ul>
-                </li>
-                <li class="collapsed">
-                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#payroll-Components" href="#"><i
-                            class="icofont-users-alt-5"></i> <span>Payroll</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="payroll-Components">
-                        <li><a class="ms-link" href="salaryslip.html"><span>Employee Salary</span> </a></li>
-                        
-                    </ul>
-                </li>
-                <li class="collapsed">
-                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#app-Components" href="#">
-                        <i class="icofont-contrast"></i> <span>App</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="app-Components">
-                        <li><a class="ms-link" href="calendar.html"> <span>Calander</span></a></li>
-                        <li><a class="ms-link" href="chat.html"><span>Chat App</span></a></li>
-                    </ul>
-                </li>
-                                <li class="collapsed">
-                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#extra-Components" href="#">
-                        <i class="icofont-code-alt"></i> <span>Other Pages</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="extra-Components">
-                        <li><a class="ms-link" href="charts.html"> <span>Apex Charts</span></a></li>
-                        <li><a class="ms-link" href="forms.html"><span>Forms Example</span></a></li>
-                        <li><a class="ms-link" href="table.html"> <span>Table Example</span></a></li>
-                        <li><a class="ms-link" href="review.html"><span>Reviews Page</span></a></li>
-                         <li><a class="ms-link" href="icon.html"><span>Icons</span></a></li>
-                        <li><a class="ms-link" href="contact.html"><span>Contact</span></a></li>
-                        <li><a class="ms-link" href="widgets.html"><span>Widgets</span></a></li>
-                    </ul>
-                </li>
-                <li><a class="m-link" href="ui-elements/ui-alerts.html"><i class="icofont-paint"></i> <span>UI Components</span></a></li>
+                <li><a class="m-link" href="<?=base_url('main');?>"><i class="icofont-home"></i> <span>Home</span></a></li>
+                <li><a class="m-link" href="#" data-bs-toggle="modal" data-bs-target="#ChangePassword"><i class="icofont-key"></i> <span>Change Password</span></a></li>                
             </ul>
 
             <!-- Theme: Switch Theme -->
-            <ul class="list-unstyled mb-0">
+            <!-- <ul class="list-unstyled mb-0">
                 <li class="d-flex align-items-center justify-content-center">
                     <div class="form-check form-switch theme-switch">
                         <input class="form-check-input" type="checkbox" id="theme-switch">
@@ -126,10 +31,10 @@
                         <label class="form-check-label" for="theme-rtl">Enable RTL Mode!</label>
                     </div>
                 </li>
-            </ul>
+            </ul> -->
             <!-- Menu: menu collepce btn -->
-            <button type="button" class="btn btn-link sidebar-mini-btn text-light">
+            <!-- <button type="button" class="btn btn-link sidebar-mini-btn text-light">
                 <span class="ms-2"><i class="icofont-bubble-right"></i></span>
-            </button>
+            </button> -->
         </div>
     </div>
