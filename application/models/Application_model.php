@@ -96,8 +96,11 @@
             }
         }
         public function authenticate($email,$password){
+            $date=date('Y-m-d');
+            $time=date('H:i:s');
             $result=$this->db->query("SELECT * FROM applicant WHERE app_email='$email' AND app_password='$password' AND `status`='verified'");
             if($result->num_rows()>0){
+                $this->db->query("UPDATE applicant SET login_date='$date',login_time='$time' WHERE app_email='$email'");
                 return $result->row_array();
             }else{
                 return false;
