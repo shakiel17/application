@@ -10,8 +10,7 @@ date_default_timezone_set('Asia/Manila');
             }                                
             $userdata=array('firstname','lastname','email','contactno','password','ctime');
             $this->session->unset_userdata($userdata);
-            if($this->session->admin_login){redirect(base_url('main'));}            
-            else{}
+            if($this->session->user_login){redirect(base_url('main'));}                       
             $this->load->view('pages/'.$page);                 
         }
         public function register(){
@@ -108,6 +107,56 @@ date_default_timezone_set('Asia/Manila');
             if($this->session->user_login){redirect(base_url('main'));}
             else{}
             $this->load->view('pages/'.$page);                 
+        }
+        public function authenticate(){
+            $email=$this->input->post('email');
+            $password=$this->input->post('password');
+            $user=$this->Application_model->authenticate($email,$password);
+            if($user){
+                $userdata = array(
+                    'app_id' => $user['app_id'],
+                    'email' => $email,
+                    'fullname' => $user['app_firstname']." ".$user['app_lastname'],
+                    'user_login' => true
+                );
+                $this->session->set_userdata($userdata);
+                redirect(base_url('main'));
+            }else{
+                $this->session->set_flashdata('error_email','* Invalid email address!');
+                $this->session->set_flashdata('error_password','* Invalid password!');
+                redirect(base_url());
+            }
+        } 
+        public function logout(){
+            $userdata = array('app_id','email','fullname','user_login');
+            $this->session->unset_userdata($userdata);
+            redirect(base_url());
+        }
+        public function main(){
+            $page = "main";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }                                                        
+            if($this->session->user_login){}            
+            else{redirect(base_url());}
+            $data['applicant'] = $this->Application_model->getApplicantProfile($this->session->app_id);
+            $data['documents'] = $this->Application_model->getAllDocuments($this->session->app_id);
+            $this->load->view('includes/header');
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');            
+            $this->load->view('pages/'.$page,$data); 
+            $this->load->view('includes/modal',$data);                
+            $this->load->view('includes/footer');
+        }      
+        
+        public function update_profile(){
+            $update=$this->Application_model->update_profile();
+            if($update){
+                
+            }else{
+
+            }
+            redirect(base_url('main'));
         }
 }
 ?>

@@ -55,13 +55,15 @@
                                 <div class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">Email address</label>
-                                        <input type="email" class="form-control form-control-lg" name="app_email" placeholder="name@example.com" required>
+                                        <input type="email" class="form-control form-control-lg" name="email" placeholder="name@example.com" required autocomplete="off">
+                                        <label style="color:red;"><?=$this->session->error_email;?></label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">Password</label>
-                                        <input type="password" class="form-control form-control-lg" name="app_password" placeholder="Your password" required>
+                                        <input type="password" class="form-control form-control-lg" name="password" placeholder="Your password" required autocomplete="off">
+                                        <label style="color:red;"><?=$this->session->error_password;?></label>
                                     </div>
                                 </div>                                
                                 <div class="col-12">

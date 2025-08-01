@@ -73,6 +73,8 @@
         }
 
         public function verify_account($code){
+            $date=date('Y-m-d');
+            $time=date('H:i:s');
             $email=$this->session->email;
             $query=$this->db->query("SELECT * FROM verification WHERE email='$email' AND `code`='$code'");
             if($query->num_rows()>0){
@@ -84,13 +86,57 @@
                 $minutes = $difference_in_seconds / 60;        
 
                 if($minutes <= 5){
-                    $this->db->query("UPDATE applicant SET `status`='verified' WHERE app_email='$email'");
+                    $this->db->query("UPDATE applicant SET `status`='verified',date_verified='$date',time_verified='$time' WHERE app_email='$email'");
                     return true;
                 }else{
                     return false;
                 }
             }else{
                 return false;
+            }
+        }
+        public function authenticate($email,$password){
+            $result=$this->db->query("SELECT * FROM applicant WHERE app_email='$email' AND app_password='$password' AND `status`='verified'");
+            if($result->num_rows()>0){
+                return $result->row_array();
+            }else{
+                return false;
+            }
+        }
+
+        public function getApplicantProfile($id){
+            $result=$this->db->query("SELECT a.*,ad.* FROM applicant a LEFT JOIN applicant_details ad ON a.app_id=ad.app_id WHERE a.app_id='$id'");
+            return $result->row_array();
+        }
+        public function getAllDocuments($id){
+            $result=$this->db->query("SELECT * FROM documents WHERE app_id='$id'");
+            return $result->result_array();
+        }
+
+        public function update_profile(){
+            $app_id=$this->session->app_id;
+            $app_lastname=$this->input->post('app_lastname');
+            $app_firstname=$this->input->post('app_firstname');
+            $app_middlename=$this->input->post('app_middlename');
+            $app_suffix=$this->input->post('app_suffix');
+            $app_address=$this->input->post('app_address');
+            $app_birthdate=$this->input->post('app_birthdate');
+            $app_contact=$this->input->post('app_contact');
+            $app_email=$this->input->post('app_email');
+            $branch=$this->input->post('branch');
+            $department=$this->input->post('department');
+
+            $result=$this->db->query("UPDATE applicant SET app_lastname='$app_lastname',app_firstname='$app_firstname',app_middlename='$app_middlename',app_suffix='$app_suffix',app_address='$app_address',app_birthdate='$app_birthdate',app_contact='$app_contact',app_email='$app_email' WHERE app_id='$app_id'");
+            if($result){
+                $check=$this->db->query("SELECT * FROM applicant_details WHERE app_id='$app_id'");
+                if($check->num_rows()>0){
+                    $this->db->query("UPDATE applicant_details SET branch='$branch',department='$department' WHERE app_id='$app_id'");
+                }else{
+                    $this->db->query("INSERT INTO applicant_details(app_id,branch,department) VALUES('$app_id','$branch','$department')");
+                }
+                return true;
+            }else{
+                return true;
             }
         }
     }
