@@ -125,14 +125,17 @@
             $app_email=$this->input->post('app_email');
             $branch=$this->input->post('branch');
             $department=$this->input->post('department');
+            $school_name=$this->input->post('school_name');
+            $course=$this->input->post('course');
+            $year_graduated=$this->input->post('year_graduated');
 
             $result=$this->db->query("UPDATE applicant SET app_lastname='$app_lastname',app_firstname='$app_firstname',app_middlename='$app_middlename',app_suffix='$app_suffix',app_address='$app_address',app_birthdate='$app_birthdate',app_contact='$app_contact',app_email='$app_email' WHERE app_id='$app_id'");
             if($result){
                 $check=$this->db->query("SELECT * FROM applicant_details WHERE app_id='$app_id'");
                 if($check->num_rows()>0){
-                    $this->db->query("UPDATE applicant_details SET branch='$branch',department='$department' WHERE app_id='$app_id'");
+                    $this->db->query("UPDATE applicant_details SET branch='$branch',department='$department',school_name='$school_name',course='$course',year_graduated='$year_graduated' WHERE app_id='$app_id'");
                 }else{
-                    $this->db->query("INSERT INTO applicant_details(app_id,branch,department) VALUES('$app_id','$branch','$department')");
+                    $this->db->query("INSERT INTO applicant_details(app_id,branch,department,school_name,course,year_graduated) VALUES('$app_id','$branch','$department','$school_name','$course','$year_graduated')");
                 }
                 return true;
             }else{

@@ -59,6 +59,18 @@
                             <label class="form-label">Email</label>
                             <input type="text" class="form-control" name="app_email" required value="<?=$applicant['app_email'];?>">
                         </div>
+                        <div class="form-group mb-1">
+                            <label class="form-label">School Graduated</label>
+                            <input type="text" class="form-control" name="school_name" required value="<?=$applicant['school_name'];?>">
+                        </div>
+                        <div class="form-group mb-1">
+                            <label class="form-label">Course</label>
+                            <input type="text" class="form-control" name="course" required value="<?=$applicant['course'];?>">
+                        </div>
+                        <div class="form-group mb-1">
+                            <label class="form-label">Year Graduated</label>
+                            <input type="text" class="form-control" name="year_graduated" required value="<?=$applicant['year_graduated'];?>">
+                        </div>
                     </div>                   
                 </div>
             </div>
@@ -119,6 +131,7 @@
                         <div class="form-group mb-1">
                             <label class="form-label">File</label>
                             <input type="file" class="form-control" name="file" required accept="application/pdf">
+                            <label style="color:red;">* Upload only .pdf file.</label>
                         </div>
                     </div>
                 </div>

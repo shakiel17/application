@@ -27,10 +27,10 @@
                                     <h6  class="mb-0 mt-2  fw-bold d-block fs-6"><?=$applicant['app_firstname'];?> <?=$applicant['app_middlename'];?> <?=$applicant['app_lastname'];?></h6>
                                     <span class="py-1 fw-bold small-11 mb-0 mt-1 text-muted">
                                         <?php
-                                            if($applicant['department']==""){
-                                                echo "Your preferred department";
+                                            if($applicant['course']==""){
+                                                echo "Your course here.";
                                             }else{
-                                                echo "Applied Department: ".$applicant['department'];
+                                                echo $applicant['course'];
                                             }
                                         ?>
                                     </span>
@@ -73,10 +73,10 @@
                                                 <i class="icofont-address-book"></i>
                                                 <span class="ms-2 small">
                                                     <?php
-                                                    if($applicant['branch']==""){
-                                                        echo "Your preferred branch here.";
+                                                    if($applicant['school_name']==""){
+                                                        echo "Your school here.";
                                                     }else{
-                                                        echo $applicant['branch'];
+                                                        echo $applicant['school_name'].", ".$applicant['year_graduated'];
                                                     }
                                                     ?>
                                                 </span>

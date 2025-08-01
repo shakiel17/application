@@ -14,7 +14,14 @@
             <!-- Menu: main ul -->
             <ul class="menu-list flex-grow-1 mt-3">
                 <li><a class="m-link" href="<?=base_url('main');?>"><i class="icofont-home"></i> <span>Home</span></a></li>
-                <li><a class="m-link" href="#" data-bs-toggle="modal" data-bs-target="#ChangePassword"><i class="icofont-key"></i> <span>Change Password</span></a></li>                
+                <li><a class="m-link" href="#" data-bs-toggle="modal" data-bs-target="#ChangePassword"><i class="icofont-key"></i> <span>Change Password</span></a></li> 
+                <?php
+                if($applicant['for_exam']==1){
+                ?>               
+                <li><a class="m-link" href="http://192.168.0.100:100/examination" target="_blank"><i class="icofont-book"></i> <span>Examination</span></a></li>
+                <?php
+                }
+                ?>
             </ul>
 
             <!-- Theme: Switch Theme -->

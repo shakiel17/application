@@ -1,6 +1,10 @@
     </div>
 </div>
-
+<style type="text/css">
+    /* .swal2-title{
+        font-size:10px;
+    } */
+</style>
 <!-- Jquery Core Js -->
 <script src="<?=base_url('design/assets/bundles/libscripts.bundle.js');?>"></script>
 
@@ -9,7 +13,8 @@
 
 <!-- Jquery Page Js -->
 <!-- <script src="<?=base_url('design/js/template.js');?>"></script> -->
-<script src="<?=base_url('design/js/sweetalert.min.js');?>"></script>
+<!-- <script src="<?=base_url('design/js/sweetalert.min.js');?>"></script> -->
+ <script src="https://unpkg.com/sweetalert2@7.1.2/dist/sweetalert2.all.js"></script>
 <script>
      // project data table
      $(document).ready(function() {
@@ -81,5 +86,21 @@ if($this->session->flashdata('failed')):
         <?php
 endif;
 ?>
+<?php
+if($this->session->flashdata('login')):
+    ?>
+        <script type="text/javascript">
+            swal({
+            title: 'Important Reminders!',
+            html: '<p style="font-size:14px; text-align:left;">1. Address your application letter to <font style="font-weight:bold;">IRENE JOY B. DOMINGUEZ, RN, MAHA</font>, Corporate HR Director<br>2. Update your information and ensure that all required documents are uploaded.<br>3. Your account may be permanently deleted if it remains inactive for 10 months.<br>4. Once your profile is complete and documents are uploaded, we will contact you for an interview if you meet the qualifications for a vancant role. Thank you.</p>',  
+            textAlign: "left",
+            width: 800,
+            showCancelButton: false,
+          });
+        </script>
+                <?php
+endif;
+?>
+
 </body>
 </html>

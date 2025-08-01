@@ -119,7 +119,8 @@ date_default_timezone_set('Asia/Manila');
                     'fullname' => $user['app_firstname']." ".$user['app_lastname'],
                     'user_login' => true
                 );
-                $this->session->set_userdata($userdata);
+                $this->session->set_flashdata('login','Success');
+                $this->session->set_userdata($userdata);                
                 redirect(base_url('main'));
             }else{
                 $this->session->set_flashdata('error_email','* Invalid email address!');
@@ -142,7 +143,7 @@ date_default_timezone_set('Asia/Manila');
             $data['applicant'] = $this->Application_model->getApplicantProfile($this->session->app_id);
             $data['documents'] = $this->Application_model->getAllDocuments($this->session->app_id);
             $this->load->view('includes/header');
-            $this->load->view('includes/sidebar');
+            $this->load->view('includes/sidebar',$data);
             $this->load->view('includes/navbar');            
             $this->load->view('pages/'.$page,$data); 
             $this->load->view('includes/modal',$data);                
