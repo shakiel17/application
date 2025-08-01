@@ -39,6 +39,7 @@ CREATE TABLE `applicant` (
   `timearray` time DEFAULT NULL,
   `date_verified` date DEFAULT NULL,
   `time_verified` time DEFAULT NULL,
+  `for_exam` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -49,7 +50,7 @@ CREATE TABLE `applicant` (
 
 LOCK TABLES `applicant` WRITE;
 /*!40000 ALTER TABLE `applicant` DISABLE KEYS */;
-INSERT INTO `applicant` VALUES (4,'20250801092500','Aboy','Eczekiel','Hermocilla','','Purok 7C, Sudapin, Kidapawan City','1986-05-14','09107524284','easykill.aboy@gmail.com','1234','verified','2025-08-01','09:25:00',NULL,NULL);
+INSERT INTO `applicant` VALUES (4,'20250801092500','Aboy','Eczekiel','Hermocilla','','Purok 7C, Sudapin, Kidapawan City','1986-05-14','09107524284','easykill.aboy@gmail.com','1234','verified','2025-08-01','09:25:00',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `applicant` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,6 +66,9 @@ CREATE TABLE `applicant_details` (
   `app_id` varchar(45) DEFAULT NULL,
   `branch` text,
   `department` varchar(45) DEFAULT NULL,
+  `school_name` varchar(100) DEFAULT NULL,
+  `course` varchar(45) DEFAULT NULL,
+  `year_graduated` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -75,7 +79,7 @@ CREATE TABLE `applicant_details` (
 
 LOCK TABLES `applicant_details` WRITE;
 /*!40000 ALTER TABLE `applicant_details` DISABLE KEYS */;
-INSERT INTO `applicant_details` VALUES (1,'20250801092500','Kidapawan Medical Specialists Center, Inc.','LABORATORY');
+INSERT INTO `applicant_details` VALUES (1,'20250801092500','Kidapawan Medical Specialists Center, Inc.','LABORATORY','Colegio de Kidapawan','BS in Computer Engineering','2009');
 /*!40000 ALTER TABLE `applicant_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,4 +144,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-08-01 14:04:08
+-- Dump completed on 2025-08-01 15:05:55
